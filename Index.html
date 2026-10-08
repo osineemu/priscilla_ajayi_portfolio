@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ajayi Priscilla — Content Creator & Social Media Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&f
+amily=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+--ink: #141414;
+--sand: #F7F3EE;
+--clay: #C4633A;
+--clay-light: #E8C3A8;
+--clay-pale: #FBF0E8;
+--slate: #4A4A4A;
+--rule: #E0D8CE;
+--white: #FFFFFF;
+--font-display: 'Playfair Display', Georgia, serif;
+--font-body: 'DM Sans', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+font-family: var(--font-body);
+background: var(--sand);
+color: var(--ink);
+line-height: 1.6;
+}
+/* ── NAV ── */
+nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+display: flex; align-items: center; justify-content: space-between;
+padding: 1.1rem 2rem;
+background: rgba(247,243,238,0.92);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid var(--rule);
+}
+.nav-logo {
+font-family: var(--font-display);
+font-size: 1.1rem;
+font-weight: 700;
+color: var(--ink);
+text-decoration: none;
+letter-spacing: -0.02em;
+}
+.nav-logo span { color: var(--clay); }
+.nav-links {
+display: flex; gap: 2rem; list-style: none;
+}
+.nav-links a {
+text-decoration: none;
+color: var(--slate);
+font-size: 0.85rem;
+font-weight: 500;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--clay); }
+.nav-cta {
+background: var(--clay);
+color: var(--white) !important;
+padding: 0.45rem 1.1rem;
+border-radius: 2px;
+}
+.nav-cta:hover { background: #a8522e; color: var(--white) !important; }
+/* ── HERO ── */
+#hero {
+min-height: 100vh;
+display: grid;
+grid-template-columns: 1fr 1fr;
+align-items: center;
+padding: 7rem 4rem 4rem;
+max-width: 1200px;
+margin: 0 auto;
+gap: 3rem;
+}
+.hero-text { position: relative; }
+.hero-eyebrow {
+font-size: 0.75rem;
+font-weight: 600;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--clay);
+margin-bottom: 1.2rem;
+display: flex; align-items: center; gap: 0.6rem;
+}
+.hero-eyebrow::before {
+content: '';
+display: inline-block;
+width: 28px; height: 2px;
+background: var(--clay);
+}
+h1 {
+font-family: var(--font-display);
+font-size: clamp(2.8rem, 5vw, 4.5rem);
+font-weight: 900;
+line-height: 1.05;
+letter-spacing: -0.03em;
+color: var(--ink);
+margin-bottom: 0.3rem;
+}
+.hero-title-accent {
+font-family: var(--font-display);
+font-style: italic;
+font-weight: 700;
+font-size: clamp(1.6rem, 3vw, 2.4rem);
+color: var(--clay);
+display: block;
+margin-bottom: 1.5rem;
+}
+.hero-summary {
+color: var(--slate);
+font-size: 1.05rem;
+line-height: 1.75;
+max-width: 480px;
+margin-bottom: 2rem;
+}
+.hero-actions {
+display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+}
+.btn {
+display: inline-block;
+padding: 0.75rem 1.75rem;
+border-radius: 2px;
+font-family: var(--font-body);
+font-size: 0.85rem;
+font-weight: 600;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+text-decoration: none;
+cursor: pointer;
+border: none;
+transition: all 0.2s;
+}
+.btn-primary {
+background: var(--clay);
+color: var(--white);
+}
+.btn-primary:hover { background: #a8522e; transform: translateY(-1px); }
+.btn-outline {
+background: transparent;
+border: 1.5px solid var(--ink);
+color: var(--ink);
+}
+.btn-outline:hover { background: var(--ink); color: var(--white); transform: translateY(-1px); }
+/* Signature element: the "film strip" portrait with decorative frames */
+.hero-visual {
+position: relative;
+display: flex; justify-content: center; align-items: center;
+}
+.portrait-frame {
+position: relative;
+width: 340px; height: 420px;
+}
+.portrait-bg-block {
+position: absolute;
+top: 18px; left: 18px;
+width: 100%; height: 100%;
+background: var(--clay);
+border-radius: 4px;
+z-index: 0;
+}
+.portrait-card {
+position: relative; z-index: 1;
+width: 100%; height: 100%;
+background: var(--clay-pale);
+border-radius: 4px;
+overflow: hidden;
+display: flex; flex-direction: column; justify-content: flex-end;
+box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+.portrait-placeholder {
+position: absolute; inset: 0;
+display: flex; flex-direction: column;
+align-items: center; justify-content: center;
+background: linear-gradient(160deg, #e8c3a8 0%, #d4956e 60%, #c4633a 100%);
+color: var(--white);
+}
+.portrait-initials {
+font-family: var(--font-display);
+font-size: 5rem;
+font-weight: 900;
+line-height: 1;
+opacity: 0.9;
+}
+.portrait-caption {
+font-size: 0.7rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+opacity: 0.7;
+margin-top: 0.5rem;
+}
+.portrait-badge {
+position: absolute;
+bottom: -12px; right: -16px;
+z-index: 2;
+background: var(--ink);
+color: var(--white);
+padding: 0.5rem 0.9rem;
+border-radius: 2px;
+font-size: 0.72rem;
+font-weight: 600;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+}
+.location-tag {
+margin-top: 1.8rem;
+display: flex; align-items: center; gap: 0.4rem;
+font-size: 0.8rem;
+color: var(--slate);
+}
+.location-tag svg { color: var(--clay); }
+/* Social in hero */
+.hero-socials {
+display: flex; gap: 0.8rem; margin-top: 1.5rem;
+}
+.social-icon {
+width: 36px; height: 36px;
+border-radius: 50%;
+background: var(--white);
+border: 1px solid var(--rule);
+display: flex; align-items: center; justify-content: center;
+text-decoration: none;
+color: var(--ink);
+transition: all 0.2s;
+}
+.social-icon:hover { background: var(--clay); color: var(--white); border-color: var(--clay); }
+.social-icon svg { width: 15px; height: 15px; }
+/* ── SECTIONS ── */
+section {
+max-width: 1100px;
+margin: 0 auto;
+padding: 5rem 2rem;
+}
+.section-label {
+font-size: 0.72rem;
+font-weight: 600;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--clay);
+margin-bottom: 0.6rem;
+}
+.section-title {
+font-family: var(--font-display);
+font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+font-weight: 900;
+letter-spacing: -0.02em;
+color: var(--ink);
+line-height: 1.15;
+margin-bottom: 3rem;
+}
+.section-divider {
+border: none;
+border-top: 1px solid var(--rule);
+margin: 0 2rem;
+}
+/* ── SKILLS ── */
+#skills { background: var(--ink); border-radius: 8px; margin: 0 1rem; }
+#skills .section-label { color: var(--clay-light); }
+#skills .section-title { color: var(--white); }
+.skills-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+gap: 1rem;
+}
+.skill-pill {
+background: rgba(255,255,255,0.06);
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: 3px;
+padding: 1rem 1.2rem;
+transition: all 0.2s;
+}
+.skill-pill:hover {
+background: rgba(196,99,58,0.2);
+border-color: var(--clay);
+transform: translateY(-2px);
+}
+.skill-pill-name {
+color: var(--white);
+font-weight: 500;
+font-size: 0.9rem;
+}
+.skill-pill-type {
+color: rgba(255,255,255,0.4);
+font-size: 0.72rem;
+margin-top: 0.2rem;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+}
+/* ── EXPERIENCE ── */
+.experience-list { display: flex; flex-direction: column; gap: 2.5rem; }
+.exp-card {
+display: grid;
+grid-template-columns: 120px 1fr;
+gap: 2rem;
+border-top: 1px solid var(--rule);
+padding-top: 2.5rem;
+}
+.exp-date {
+font-size: 0.8rem;
+color: var(--clay);
+font-weight: 600;
+padding-top: 0.2rem;
+}
+.exp-org {
+font-family: var(--font-display);
+font-size: 1.25rem;
+font-weight: 700;
+color: var(--ink);
+margin-bottom: 0.2rem;
+}
+.exp-role {
+font-size: 0.8rem;
+font-weight: 600;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: var(--clay);
+margin-bottom: 0.9rem;
+}
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.exp-bullets li {
+font-size: 0.95rem;
+color: var(--slate);
+padding-left: 1.2rem;
+position: relative;
+}
+.exp-bullets li::before {
+content: '→';
+position: absolute; left: 0;
+color: var(--clay);
+font-size: 0.8rem;
+}
+/* ── PORTFOLIO ── */
+#portfolio { background: var(--clay-pale); border-radius: 8px; margin: 0 1rem; }
+.portfolio-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 1.5rem;
+}
+.portfolio-card {
+background: var(--white);
+border-radius: 4px;
+overflow: hidden;
+box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+transition: transform 0.2s, box-shadow 0.2s;
+}
+.portfolio-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+.portfolio-thumb {
+width: 100%; height: 180px;
+background: linear-gradient(135deg, var(--clay-light), var(--clay));
+display: flex; align-items: center; justify-content: center;
+position: relative;
+overflow: hidden;
+}
+.portfolio-thumb video {
+width: 100%; height: 100%; object-fit: cover;
+}
+.portfolio-thumb-placeholder {
+display: flex; flex-direction: column; align-items: center; justify-content: center;
+color: var(--white); gap: 0.5rem;
+}
+.play-icon {
+width: 48px; height: 48px;
+background: rgba(255,255,255,0.25);
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+backdrop-filter: blur(4px);
+}
+.play-icon svg { width: 20px; height: 20px; margin-left: 3px; }
+.portfolio-tag {
+font-size: 0.68rem;
+font-weight: 600;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+opacity: 0.8;
+}
+.portfolio-info { padding: 1.2rem 1.4rem; }
+.portfolio-info h3 {
+font-family: var(--font-display);
+font-size: 1.05rem;
+font-weight: 700;
+color: var(--ink);
+margin-bottom: 0.4rem;
+}
+.portfolio-info p { font-size: 0.85rem; color: var(--slate); }
+.portfolio-note {
+margin-top: 2.5rem;
+background: var(--white);
+border-left: 3px solid var(--clay);
+padding: 1rem 1.4rem;
+border-radius: 0 4px 4px 0;
+font-size: 0.85rem;
+color: var(--slate);
+}
+/* ── CERTIFICATIONS ── */
+.cert-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+gap: 1.2rem;
+}
+.cert-card {
+background: var(--white);
+border: 1px solid var(--rule);
+border-radius: 4px;
+padding: 1.4rem 1.6rem;
+display: flex; gap: 1rem; align-items: flex-start;
+transition: border-color 0.2s;
+}
+.cert-card:hover { border-color: var(--clay); }
+.cert-icon {
+width: 40px; height: 40px; flex-shrink: 0;
+background: var(--clay-pale);
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+color: var(--clay);
+}
+.cert-icon svg { width: 18px; height: 18px; }
+.cert-name { font-weight: 600; font-size: 0.95rem; color: var(--ink); }
+.cert-issuer { font-size: 0.8rem; color: var(--clay); margin-top: 0.2rem; }
+/* ── TOOLS ── */
+.tools-row {
+display: flex; flex-wrap: wrap; gap: 1rem;
+}
+.tool-chip {
+display: flex; align-items: center; gap: 0.6rem;
+background: var(--white);
+border: 1px solid var(--rule);
+border-radius: 40px;
+padding: 0.6rem 1.2rem;
+font-size: 0.9rem;
+font-weight: 500;
+color: var(--ink);
+transition: all 0.2s;
+}
+.tool-chip:hover { border-color: var(--clay); color: var(--clay); }
+.tool-dot {
+width: 8px; height: 8px; border-radius: 50%;
+background: var(--clay);
+}
+/* ── EDUCATION ── */
+.edu-card {
+display: flex; gap: 2rem; align-items: flex-start;
+background: var(--clay-pale);
+border-radius: 6px;
+padding: 2rem 2.4rem;
+}
+.edu-degree-icon {
+width: 56px; height: 56px; flex-shrink: 0;
+background: var(--clay);
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+color: var(--white);
+}
+.edu-degree-icon svg { width: 24px; height: 24px; }
+.edu-school {
+font-family: var(--font-display);
+font-size: 1.3rem;
+font-weight: 700;
+color: var(--ink);
+}
+.edu-degree {
+font-size: 0.9rem;
+color: var(--slate);
+margin-top: 0.2rem;
+}
+.edu-gpa {
+display: inline-block;
+margin-top: 0.6rem;
+background: var(--clay);
+color: var(--white);
+font-size: 0.75rem;
+font-weight: 700;
+padding: 0.25rem 0.7rem;
+border-radius: 2px;
+letter-spacing: 0.05em;
+}
+/* ── CONTACT ── */
+#contact {
+background: var(--ink);
+border-radius: 8px;
+margin: 0 1rem 3rem;
+text-align: center;
+}
+#contact .section-label { color: var(--clay-light); }
+#contact .section-title { color: var(--white); margin-bottom: 1rem; }
+.contact-sub {
+color: rgba(255,255,255,0.55);
+max-width: 480px;
+margin: 0 auto 2.5rem;
+font-size: 1rem;
+}
+.contact-methods {
+display: flex; flex-wrap: wrap; gap: 1rem;
+justify-content: center; margin-bottom: 2.5rem;
+}
+.contact-pill {
+display: flex; align-items: center; gap: 0.6rem;
+background: rgba(255,255,255,0.08);
+border: 1px solid rgba(255,255,255,0.15);
+border-radius: 40px;
+padding: 0.65rem 1.4rem;
+color: var(--white);
+text-decoration: none;
+font-size: 0.9rem;
+transition: all 0.2s;
+}
+.contact-pill:hover { background: var(--clay); border-color: var(--clay); }
+.contact-pill svg { width: 15px; height: 15px; }
+.contact-socials {
+display: flex; justify-content: center; gap: 0.8rem;
+}
+.contact-social-icon {
+width: 40px; height: 40px; border-radius: 50%;
+background: rgba(255,255,255,0.08);
+border: 1px solid rgba(255,255,255,0.15);
+display: flex; align-items: center; justify-content: center;
+color: var(--white);
+text-decoration: none;
+transition: all 0.2s;
+}
+.contact-social-icon:hover { background: var(--clay); border-color: var(--clay); }
+.contact-social-icon svg { width: 16px; height: 16px; }
+/* ── FOOTER ── */
+footer {
+text-align: center;
+padding: 1.5rem 2rem;
+font-size: 0.78rem;
+color: rgba(20,20,20,0.35);
+}
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+nav { padding: 1rem 1.2rem; }
+.nav-links { display: none; }
+#hero {
+grid-template-columns: 1fr;
+padding: 5.5rem 1.5rem 3rem;
+text-align: center;
+}
+.hero-eyebrow { justify-content: center; }
+.hero-summary { max-width: 100%; }
+.hero-actions, .hero-socials { justify-content: center; }
+.hero-visual { order: -1; }
+.portrait-frame { width: 240px; height: 300px; }
+.portrait-initials { font-size: 3.5rem; }
+section { padding: 3.5rem 1.2rem; }
+#skills, #portfolio, #contact { margin: 0 0.5rem; }
+.exp-card { grid-template-columns: 1fr; gap: 0.5rem; }
+.edu-card { flex-direction: column; gap: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+*, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav>
+<a class="nav-logo" href="#hero">Ajayi <span>Priscilla</span></a>
+<ul class="nav-links">
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#portfolio">Work</a></li>
+<li><a href="#certifications">Certs</a></li>
+<li><a href="#contact" class="nav-cta">Hire Me</a></li>
+</ul>
+</nav>
+<!-- HERO -->
+<div id="hero">
+<div class="hero-text">
+<div class="hero-eyebrow">Available for opportunities</div>
+<h1>Ajayi<br>Priscilla</h1>
+<span class="hero-title-accent">Content Creator & Digital Storyteller</span>
+<p class="hero-summary">
+I craft content that connects. From short-form video to social media strategy, I help brands
+and organisations reach their audience through purposeful, creative storytelling — with
+empathy, clarity, and a scroll-stopping touch.
+</p>
+<div class="hero-actions">
+<a href="#portfolio" class="btn btn-primary">View My Work</a>
+<a href="#contact" class="btn btn-outline">Get In Touch</a>
+</div>
+<div class="hero-socials">
+<a href="#" class="social-icon" title="LinkedIn" aria-label="LinkedIn">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447
+20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136
+2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37
+4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063
+2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782
+13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0
+23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222
+0h.003z"/></svg>
+</a>
+<a href="#" class="social-icon" title="Instagram" aria-label="Instagram">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012
+4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012
+3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204
+0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849
+0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069
+4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0
+8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24
+12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618
+6.979-6.98.059-1.28.073-1.689.073-4.948
+0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12
+0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0
+010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+</a>
+<a href="#" class="social-icon" title="TikTok" aria-label="TikTok">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01
+3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24
+1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08
+1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91
+3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9
+1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04
+4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82
+3.02 3.5 2.87 1.12-.01 2.19-.66
+2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+</a>
+<a href="#" class="social-icon" title="Twitter/X" aria-label="Twitter">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26
+8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.26
+5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+</a>
+</div>
+<div class="location-tag">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12"
+cy="10" r="3"/></svg>
+Nigeria · Open to remote
+</div>
+</div>
+<div class="hero-visual">
+<div class="portrait-frame">
+<div class="portrait-bg-block"></div>
+<div class="portrait-card">
+<div class="portrait-placeholder">
+<div class="portrait-initials">AP</div>
+<div class="portrait-caption">Content Creator</div>
+</div>
+</div>
+<div class="portrait-badge">📍 Nigeria</div>
+</div>
+</div>
+</div>
+<hr class="section-divider">
+<!-- SKILLS -->
+<section id="skills">
+<div class="section-label">What I bring</div>
+<div class="section-title">Skills &amp; Expertise</div>
+<div class="skills-grid">
+<div class="skill-pill"><div class="skill-pill-name">Content Creation</div><div
+class="skill-pill-type">Core</div></div>
+<div class="skill-pill"><div class="skill-pill-name">Social Media Management</div><div
+class="skill-pill-type">Core</div></div>
+<div class="skill-pill"><div class="skill-pill-name">Short-form Video</div><div
+class="skill-pill-type">Production</div></div>
+<div class="skill-pill"><div class="skill-pill-name">Video Editing</div><div
+class="skill-pill-type">Production</div></div>
+<div class="skill-pill"><div class="skill-pill-name">Canva Design</div><div
+class="skill-pill-type">Tool</div></div>
+<div class="skill-pill"><div class="skill-pill-name">CapCut Editing</div><div
+class="skill-pill-type">Tool</div></div>
+<div class="skill-pill"><div class="skill-pill-name">Mobile Content Production</div><div
+class="skill-pill-type">Production</div></div>
+<div class="skill-pill"><div class="skill-pill-name">Copywriting</div><div
+class="skill-pill-type">Writing</div></div>
+<div class="skill-pill"><div class="skill-pill-name">Audience Engagement</div><div
+class="skill-pill-type">Strategy</div></div>
+<div class="skill-pill"><div class="skill-pill-name">Content Strategy</div><div
+class="skill-pill-type">Strategy</div></div>
+<div class="skill-pill"><div class="skill-pill-name">Customer Support</div><div
+class="skill-pill-type">Communication</div></div>
+<div class="skill-pill"><div class="skill-pill-name">Storytelling</div><div
+class="skill-pill-type">Creative</div></div>
+</div>
+</section>
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="section-label">Career Journey</div>
+<div class="section-title">Experience</div>
+<div class="experience-list">
+<div class="exp-card">
+<div class="exp-date">2024 – 2025</div>
+<div>
+<div class="exp-org">AIESEC</div>
+<div class="exp-role">Project Team Lead · Business Development &amp; External
+Relations</div>
+<ul class="exp-bullets">
+<li>Led communication and stakeholder engagement activities to strengthen external
+partnerships.</li>
+<li>Assisted in content creation and campaign promotion across digital platforms.</li>
+<li>Supported brand visibility and audience engagement initiatives.</li>
+<li>Coordinated between internal teams and external stakeholders to ensure smooth
+project execution.</li>
+<li>Prepared presentations, reports, and visual materials using Canva and Google
+Workspace.</li>
+</ul>
+</div>
+</div>
+<div class="exp-card">
+<div class="exp-date">2025</div>
+<div>
+<div class="exp-org">Bloom Consulting</div>
+<div class="exp-role">Content Strategist</div>
+<ul class="exp-bullets">
+<li>Developed and executed content strategies aligned with brand goals and audience
+engagement objectives.</li>
+<li>Planned and created content ideas for digital platforms to improve visibility and
+audience reach.</li>
+<li>Collaborated with the marketing team to ensure consistent brand messaging across
+channels.</li>
+<li>Conducted content research and trend analysis to improve engagement
+performance.</li>
+<li>Contributed to storytelling and campaign development for organisational
+branding.</li>
+</ul>
+</div>
+</div>
+<div class="exp-card">
+<div class="exp-date">Ongoing</div>
+<div>
+<div class="exp-org">Church Media &amp; Content Team</div>
+<div class="exp-role">Media Content Creator &amp; Editor</div>
+<ul class="exp-bullets">
+<li>Created video and social media content for digital ministry outreach.</li>
+<li>Edited content using mobile devices, Canva, and CapCut.</li>
+<li>Helped increase audience engagement through creative and purposeful
+storytelling.</li>
+</ul>
+</div>
+</div>
+<div class="exp-card">
+<div class="exp-date">Volunteer</div>
+<div>
+<div class="exp-org">SDGs The Way Initiative</div>
+<div class="exp-role">Digital Communications Volunteer</div>
+<ul class="exp-bullets">
+<li>Participated in public awareness campaigns around sustainable development
+goals.</li>
+<li>Assisted with digital communication and social media outreach strategies.</li>
+</ul>
+</div>
+</div>
+<div class="exp-card">
+<div class="exp-date">2024 – 2026</div>
+<div>
+<div class="exp-org">Kzeal Tutoring Services</div>
+<div class="exp-role">Academic Tutor</div>
+<ul class="exp-bullets">
+<li>Provided one-on-one tutoring in English, Mathematics, and basic literacy for
+children.</li>
+<li>Prepared tailored lesson plans and practice exercises to match each child's learning
+style.</li>
+<li>Improved students' confidence and academic performance through structured,
+empathetic support.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<hr class="section-divider">
+<!-- PORTFOLIO -->
+<section id="portfolio">
+<div class="section-label">Featured Work</div>
+<div class="section-title">Content Samples</div>
+<div class="portfolio-grid">
+<div class="portfolio-card">
+<div class="portfolio-thumb">
+<video controls preload="metadata" style="width:100%;height:100%;object-fit:cover;">
+<source src="VIDEO-2026-06-03-18-07-37.mp4" type="video/mp4">
+<div class="portfolio-thumb-placeholder">
+<div class="play-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M8
+5v14l11-7z"/></svg></div>
+<span class="portfolio-tag">Video</span>
+</div>
+</video>
+</div>
+<div class="portfolio-info">
+<h3>Content Sample #1</h3>
+<p>Short-form video content created for social media engagement.</p>
+</div>
+</div>
+<div class="portfolio-card">
+<div class="portfolio-thumb">
+<video controls preload="metadata" style="width:100%;height:100%;object-fit:cover;">
+<source src="VIDEO-2026-06-03-18-07-36.mp4" type="video/mp4">
+<div class="portfolio-thumb-placeholder">
+<div class="play-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M8
+5v14l11-7z"/></svg></div>
+<span class="portfolio-tag">Video</span>
+</div>
+</video>
+</div>
+<div class="portfolio-info">
+<h3>Content Sample #2</h3>
+<p>Creative storytelling through mobile-produced video content.</p>
+</div>
+</div>
+<div class="portfolio-card">
+<div class="portfolio-thumb" style="cursor: pointer;" onclick="this.innerHTML='<div
+class=\'portfolio-thumb-placeholder\'><div class=\'play-icon\'><svg viewBox=\'0 0 24 24\'
+fill=\'white\'><path d=\'M8 5v14l11-7z\'/></svg></div><span class=\'portfolio-tag\'>Add Your
+Work</span></div>'">
+<div class="portfolio-thumb-placeholder" style="background: linear-gradient(135deg,
+#d4956e, #8B3A1A);">
+<div class="play-icon" style="background: rgba(255,255,255,0.2); border: 2px dashed
+rgba(255,255,255,0.5);">
+<svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M12 5v14M5
+12h14"/></svg>
+</div>
+<span class="portfolio-tag">+ Add Work Sample</span>
+</div>
+</div>
+<div class="portfolio-info">
+<h3>More Coming Soon</h3>
+<p>Campaign graphics, Canva designs, and social posts — link or attach additional work
+here.</p>
+</div>
+</div>
+</div>
+<div class="portfolio-note">
+💡 <strong>Want to see more?</strong> Reach out via the contact section below and I'll
+share a full portfolio including Canva designs, campaign materials, and social media analytics.
+</div>
+</section>
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+<div class="section-label">Credentials</div>
+<div class="section-title">Certifications &amp; Recognition</div>
+<div class="cert-grid">
+<div class="cert-card">
+<div class="cert-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path
+d="M12 15l-2 5-3-1 1-5H5l7-10 7 10h-3l1 5-3 1z"/></svg>
+</div>
+<div>
+<div class="cert-name">Hedda's Mentorship Class for Diplomats Certificate</div>
+<div class="cert-issuer">Diplomatic Leadership & Communication</div>
+</div>
+</div>
+<div class="cert-card">
+<div class="cert-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle
+cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+</div>
+<div>
+<div class="cert-name">AIESEC Leadership Certificate</div>
+<div class="cert-issuer">Team Lead · Business Development &amp; EWA</div>
+</div>
+</div>
+<div class="cert-card">
+<div class="cert-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path
+d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23
+21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+</div>
+<div>
+<div class="cert-name">Volunteer Recognition Certificate</div>
+<div class="cert-issuer">SDGs The Way Initiative</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TOOLS -->
+<section id="tools" style="padding-top: 0;">
+<div class="section-label">My Toolkit</div>
+<div class="section-title">Tools I Use</div>
+<div class="tools-row">
+<div class="tool-chip"><div class="tool-dot"></div>Canva</div>
+<div class="tool-chip"><div class="tool-dot"></div>CapCut</div>
+<div class="tool-chip"><div class="tool-dot"></div>Smartphone Content Creation</div>
+<div class="tool-chip"><div class="tool-dot"></div>Google Workspace</div>
+<div class="tool-chip"><div class="tool-dot"></div>Microsoft Office</div>
+<div class="tool-chip"><div class="tool-dot"></div>Instagram</div>
+<div class="tool-chip"><div class="tool-dot"></div>TikTok</div>
+<div class="tool-chip"><div class="tool-dot"></div>Social Media Analytics</div>
+</div>
+</section>
+<!-- EDUCATION -->
+<section id="education" style="padding-top: 0;">
+<div class="section-label">Academic Background</div>
+<div class="section-title">Education</div>
+<div class="edu-card">
+<div class="edu-degree-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path
+d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+</div>
+<div>
+<div class="edu-school">University of Ilorin</div>
+<div class="edu-degree">B.A. History &amp; International Relations</div>
+<div class="edu-gpa">CGPA: 3.8</div>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section id="contact">
+<div class="section-label">Let's work together</div>
+<div class="section-title">Get In Touch</div>
+<p class="contact-sub">Ready to create content that connects, converts, and leaves a lasting
+impression? I'd love to hear from you.</p>
+<div class="contact-methods">
+<a href="mailto:ajayiprisca58@gmail.com" class="contact-pill">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4
+4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline
+points="22,6 12,13 2,6"/></svg>
+ajayiprisca58@gmail.com
+</a>
+<a href="tel:+2349030187358" class="contact-pill">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path
+d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79
+19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45
+2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122
+14.92z"/></svg>
+09030187358
+</a>
+</div>
+<div class="contact-socials">
+<a href="#" class="contact-social-icon" aria-label="LinkedIn">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447
+20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136
+2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37
+4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063
+2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782
+13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0
+23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222
+0h.003z"/></svg>
+</a>
+<a href="#" class="contact-social-icon" aria-label="Instagram">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012
+4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012
+3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204
+0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849
+0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069
+4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0
+8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24
+12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618
+6.979-6.98.059-1.28.073-1.689.073-4.948
+0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12
+0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0
+010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+</a>
+<a href="#" class="contact-social-icon" aria-label="TikTok">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01
+3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24
+1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08
+1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91
+3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9
+1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04
+4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82
+3.02 3.5 2.87 1.12-.01 2.19-.66
+2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+</a>
+<a href="#" class="contact-social-icon" aria-label="Twitter/X">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26
+8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.26
+5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+</a>
+</div>
+</section>
+<footer>
+© 2026 Ajayi Priscilla · Content Creator &amp; Social Media Manager · Nigeria
+</footer>
+</body>
+</html>
